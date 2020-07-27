@@ -29,7 +29,7 @@ router.get(
   "/facebook/callback",
   passport.authenticate("facebook", { failureRedirect: "/login" }),
   (req, res) => {
-    res.render("dashboard", { userName: req.user.firstName, layout: home });
+    res.render("dashboard", { userName: req.user.firstName });
   }
 );
 

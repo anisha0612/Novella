@@ -1,0 +1,36 @@
+<div class="container text-center pt-5 pl-5 mr-5">
+    {{> messages}}
+</div>
+<section class="box container">
+
+    <div class="row">
+        <div class="col-4">
+            <p class="lead font-weight-bold">Sign up to create to an account</p>
+            {{!-- <div class="hr"></div> --}}
+        </div>
+        <div class="col-8">
+
+            <form action="/register" method="POST">
+                <div class="email my-5">
+                    <div class="form-group">
+                        <input type="text" name="firstName" id="firstName" class="form-control"
+                            placeholder="First Name">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="lastName" id="lastName" class="form-control" placeholder="Last Name">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" id="emailId" class="form-control" placeholder="Email address">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" id="pwd" class="form-control" placeholder="Password">
+                    </div>
+                    <button type="submit" class="btn btn-block my-3">Sign Up</button>
+
+                    <p class="text-center mt-4">Already have an account? <a href="/login">Sign In</a></p>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</section>

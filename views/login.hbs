@@ -1,11 +1,15 @@
-<section class="container">
+<div class="container text-center pt-5 pl-5 mr-5">
+    {{> messages}}
+</div>
+
+<section class="container box">
     <div class="row p-4 mt-5">
         <div class="col-4 p-5">
             <h2>Welcome Back</h2>
             <div class="hr"></div>
             <p>Sign in to continue to your account.</p>
         </div>
-        <div class="col-8 pt-3">
+        <div class="col-8">
             <div class="buttons">
                 <a href="/auth/google" class="btn btn-light btn-block" type="submit" name="google"
                     style="background-color: #ffffff; color:black">Continue with <img
@@ -18,9 +22,9 @@
                     Facebook</a>
             </div>
 
-            {{!-- <div style="border-top: 1px solid #1f4068;"></div> --}}
+            <div style="border-top: 1px solid #1f4068;"></div>
 
-            {{!-- <form action="/login" method="POST">
+            <form action="/login" method="POST">
                 <div class="email my-5">
                     <div class="form-group">
                         <input type="email" name="email" id="emailId" class="form-control" placeholder="Email address">
@@ -32,7 +36,7 @@
 
                     <p class="text-center mt-4">Not a member yet? <a href="/register">Sign Up</a></p>
                 </div>
-            </form> --}}
+            </form>
 
         </div>
     </div>

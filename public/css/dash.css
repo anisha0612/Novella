@@ -30,3 +30,7 @@ li {
   transform: translate(0, 5px);
   font-weight: 900;
 }
+
+.card.is-flipped {
+  transform: rotateY(180deg);
+}

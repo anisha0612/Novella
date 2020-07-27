@@ -4,6 +4,7 @@ const morgan = require("morgan");
 const path = require("path");
 const passport = require("passport");
 const session = require("express-session");
+const flash = require("connect-flash");
 const exphbs = require("express-handlebars");
 const mongoose = require("mongoose");
 const MongoStore = require("connect-mongo")(session);
@@ -12,8 +13,9 @@ const connectDB = require("./config/db.js");
 // Load config
 dotenv.config({ path: "./config/config.env" });
 // passport-google config
-require("./config/passportGoogle")(passport);
-require("./config/passportFacebook")(passport);
+require("./config/passportGoogle.js")(passport);
+require("./config/passportFacebook.js")(passport);
+require("./config/passportLocal.js")(passport);
 // import {} from "./config/passportGoogle.js";
 
 connectDB();
@@ -61,6 +63,18 @@ app.use(
 // passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
+
+// connect flash
+app.use(flash());
+
+// global variables
+app.use((req, res, next) => {
+  res.locals.success_msg = req.flash("success_msg");
+  res.locals.error_msg = req.flash("error_msg");
+  res.locals.error = req.flash("error");
+  res.locals.user = req.user || null;
+  next();
+});
 
 // routes
 app.use("/", require("./routes/index.js"));
