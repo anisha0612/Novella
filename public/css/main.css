@@ -1,0 +1,65 @@
+html {
+  box-sizing: border-box;
+}
+
+body {
+  background: url("../images/typewriter_dark.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  /* font-family: "Grenze Gotisch", cursive; */
+  font-family: "Roboto", sans-serif;
+}
+
+header {
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  right: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+}
+
+q {
+  font-size: 2em;
+  font-weight: 700;
+}
+
+.btn {
+  background-color: #e43f5a;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+#open-nav {
+  margin: 1em;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #e43f5a;
+  color: #e0dcdc;
+  font-size: 1.75em;
+}
+section > #open-nav:hover {
+  background-color: transparent;
+  color: #ffffff;
+  font-weight: 900;
+}
+
+@media (max-width: 768px) {
+  q {
+    font-size: 1em;
+  }
+  .btn {
+    padding: 0 2em;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .btn {
+    padding: 0 4em;
+  }
+}

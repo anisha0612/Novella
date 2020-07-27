@@ -1,0 +1,32 @@
+html {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.nav-wrapper > .brand-logo,
+.sidenav-trigger {
+  color: #333333;
+}
+.sidenav {
+  background-color: #333333;
+  color: #ffffff;
+}
+li {
+  margin-top: 2em;
+}
+#white {
+  color: #ffffff;
+}
+
+.btn {
+  background-color: #e43f5a;
+  color: #ffffff;
+}
+.btn:hover {
+  background-color: #e0455f;
+  transform: translate(0, 5px);
+  font-weight: 900;
+}
