@@ -1,33 +1,66 @@
 <section>
     <div class="container">
-        {{!-- <h2>Hello, </h2> --}}
-        <h4 class="center ">Your stories</h4>
-        {{#if stories}}
-        <table>
-            <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Date</th>
-                    <th>Status</th>
+        <div class="col s12 m7">
+            <div class="card top horizontal">
+                <div class="card-image">
+                    <img src="/images/portrait.png">
+                </div>
+                <div class="card-stacked">
+                    <div class="card-content center">
+                        <span>
+                            <h4>{{firstName}}</h4>
+                        </span>
+                        <span>
+                            <h4>{{lastName}}</h4>
+                        </span>
 
-                </tr>
-            </thead>
-            <tbody>
-                {{#each stories}}
-                <tr>
-                    <td>
-                        <a href="/stories/{{_id}}"></a>{{title}}
-                    </td>
-                    <td>{{formatDate createdAt 'MMMM Do YYYY, h:mm:ss a'}}</td>
-                    <td><span class="dash-status">{{status}}</span></td>
-                    <td></td>
-                </tr>
-                {{/each}}
-            </tbody>
-        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{#if stories}}
+        <h5 class="center padding">Your stories</h5>
+        <ul class="collapsible">
+            {{#each stories}}
+            <li>
+                <div class="collapsible-header">
+                    <i class="fas fa-pen-square"></i>
+                    <a href="/stories/{{_id}}" class="big">{{title}}</a>
+                    <form action="/stories/{{_id}}" method="POST">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="submit" class="position"><i class="fas fa-trash" id="delete"></i></button>
+                    </form>
+                </div>
+                <div class="collapsible-body">
+                    <div class="row bottom">
+                        <div class="col s12 bottom">
+                            {{formatDate createdAt 'MMMM Do YYYY, h:mm:ss a'}}
+                        </div>
+                        <div class="col s12">
+                            {{status}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12">
+                            {{ truncate (stripTags body)}}
+                        </div>
+                    </div>
+                </div>
+            </li>
+            {{/each}}
+        </ul>
+
         {{else}}
-        <p>You have not created any stories </p>
-        {{/if}}
-    </div>
+        <div class="row">
+            <div class="col s12">
+                <div class="card">
+                    <div class="card-content center">
+                        <span class="card-title">Your stories</span>
+                        <p class="padding-top"> You haven&#39;t created any story. Create a new story!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        < {{/if}} </div>
 
 </section>

@@ -63,17 +63,32 @@ router.get("/login", (req, res) => {
 //login "post" request
 router.post(
   "/login",
-  passport.authenticate("local-login", {
-    successRedirect: "/dashboard",
-    failureRedirect: "/login",
-  })
+  passport.authenticate("local-login"),
+  // {
+  //   successRedirect: "/dashboard",
+  //   failureRedirect: "/login",
+  // },
+  async (req, res) => {
+    try {
+      res.render("dashboard", {
+        firstName: req.user.firstName,
+        lastName: req.user.lastName,
+      });
+    } catch (err) {
+      return res.render("login");
+    }
+  }
 );
 
 //dashboard
 router.get("/dashboard", ensureAuth, async (req, res) => {
   try {
     const stories = await Story.find({ user: req.user.id }).lean();
-    res.render("dashboard", { username: req.user.firstName, stories });
+    res.render("dashboard", {
+      firstName: req.user.firstName,
+      lastName: req.user.lastName,
+      stories,
+    });
   } catch (err) {
     console.error(err);
     res.render("error/500");

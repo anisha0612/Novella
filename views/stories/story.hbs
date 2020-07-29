@@ -1,0 +1,12 @@
+<div class="row">
+    {{#if story}}
+    <div class="col s12">
+        <div class="container center top">
+            <h3 class="padding">{{title}}</h3>
+            <p class="big">{{stripTags body}}</p>
+        </div>
+    </div>
+    {{else}}
+    <h6 class="center-align"> Story is not present anymore</h6>
+    {{/if}}
+</div>

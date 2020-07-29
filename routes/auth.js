@@ -14,7 +14,10 @@ router.get(
   passport.authenticate("google", { failureRedirect: "/login" }),
   (req, res) => {
     // Successful authentication, redirect home.
-    res.render("dashboard", { userName: req.user.firstName });
+    res.render("dashboard", {
+      firstName: req.user.firstName,
+      lastName: req.user.lastName,
+    });
   }
 );
 
@@ -29,7 +32,10 @@ router.get(
   "/facebook/callback",
   passport.authenticate("facebook", { failureRedirect: "/login" }),
   (req, res) => {
-    res.render("dashboard", { userName: req.user.firstName });
+    res.render("dashboard", {
+      firstName: req.user.firstName,
+      lastName: req.user.lastName,
+    });
   }
 );
 
