@@ -1,6 +1,6 @@
 # Novella
 
-This is Recipe or short story creating web app, where a user logins in  through google, facebook or through their email to publish public or private stories.
+This is Short story creating web app, where a user logins in  through google, facebook or through their email to publish public or private stories.
 
 This app uses Node.js, Express.js,Handlebars.js,Passport.js (google oauth 2.0 and facebook authentication), MongoDB(Mongoose)
 
